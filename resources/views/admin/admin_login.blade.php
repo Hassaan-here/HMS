@@ -59,10 +59,11 @@
                                             @csrf
                                             <div class="col-12">
                                                 <label for="inputEmailAddress" class="form-label">Email/Name/Phone</label>
-                                                <input type="text" class="form-control @error('login')
-                                                is-invalid @enderror" id="login" name="login"   placeholder="john@example.com">
+                                                <input type="text" class="form-control @error('login') is-invalid @enderror" id="login" name="login"   placeholder="john@example.com">
                                                 @error('login')
-                                                    <span class="text-danger">{{ $message }}</span>
+                                                    <span class="text-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                                 @enderror
                                             </div>
                                             <div class="col-12">
