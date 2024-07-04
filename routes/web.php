@@ -21,5 +21,16 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth','role:admin'])->group(function(){
+    // login route
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    // logout route
+    Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+// Profile route
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+    // Profile update
+    Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+   
 });
+
+
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
